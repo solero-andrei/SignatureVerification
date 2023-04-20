@@ -1,0 +1,24 @@
+{% extends 'base/index.html' %}
+
+{% block content %}
+    <div class="container-md">
+        <h1>Register User</h1>
+        <form method="post">
+            {% csrf_token %}
+            <label for="{{ form.Firstname.id_for_label }}">First name</label>
+            {{ form.Firstname }}
+            <label for="{{ form.Middlename.id_for_label }}">Middle name</label>
+            {{ form.Middlename }}
+            <label for="{{ form.Lastname.id_for_label }}">Last name</label>
+            {{ form.Lastname }}
+            <label for="{{ form.Email.id_for_label }}">Email Address</label>
+            {{ form.Email }}
+            <label for="{{ form.ContactNumber.id_for_label }}">Contact Number</label>
+            {{ form.ContactNumber }}
+            <label for="{{ form.Address.id_for_label }}">Address</label>
+            {{ form.Address }}
+            
+            <button type="button" name="" id="" class="btn btn-primary mt-3 px-5 btn-block">Register</button>
+        </form>
+    </div>
+{% endblock content %}

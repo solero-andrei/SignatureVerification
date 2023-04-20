@@ -1,0 +1,15 @@
+{% extends 'base/index.html' %}
+
+{% block content %}
+    <div class="container-lg text-center">
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h1>Register a signature for {{ user.Firstname }}</h1>
+            <input type="file" name="signatures" multiple>
+            {% for file in signatures %}
+                <p>haha</p>
+            {% endfor %}
+            <button class="btn" type="submit">Register and Train Neural Network</button>
+        </form>
+    </div>
+{% endblock content %}

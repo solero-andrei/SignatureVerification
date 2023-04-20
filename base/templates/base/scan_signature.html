@@ -1,0 +1,23 @@
+{% extends 'base/index.html' %}
+
+{% block content %}
+<div class="container-lg text-center">
+    {% if classes == 0 %}
+        <h1>Unable to Scan/Predict Image</h1>
+        <h3>{{ classes }} Registerd Signature Found. Please register a signature first to scan any signatures.</h3>
+        <p>Register a signature first and then scan your desired image. <a href="{% url 'register_user' %}">Register Here</a></p>
+    {% else %}
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="signature">
+            <button type="submit">Scan Image</button>
+        </form>
+
+        {% if predicted_class %}
+            <h1 class="fs-2 mt-3">The scanned signature belongs to: {{predicted_class}} </h1>
+        {% endif %}        
+    {% endif %}
+</div>
+{% endblock content %}
+
+
